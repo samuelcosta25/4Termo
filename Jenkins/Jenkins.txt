@@ -1,0 +1,24 @@
+CI - Integração contínua: integrar o código em um repositório compartilhado; 
+
+CD - Entrega contínua:  Alterações no código que passam por um teste automatizado (jobs), e se
+ forem aprovadas, são automaticamente implantadas em um ambiente para validação do cliente. 
+
+Jenkins:
+- Automação de builds: Jobs que automaticamente testam erros do codigo a cada commit;
+
+- Pipelines: Script em Groovy que organiza e testa as etapas de projetos. Exibe uma mensagem para 
+  feedback;
+
+- Plugins: Arquitetura modular, aonde é possível configurar o uso da ferramenta utilizando plugins 
+  para configurar o ambiente (comparação com Python);
+
+- Integração com ferramentas de versionamento: Git, SVN, Mercurial..;
+
+- Execução distribuída: É possível executar varias tarefas de forma simultânea (escalabilidade 
+  horizontal).
+
+- Controle de acesso e segurança: É possível configurar varios níveis diferentes para tipos de grupos
+  e tipos de usuários;
+
+- Interface Intuitiva;
+

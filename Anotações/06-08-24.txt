@@ -1,0 +1,9 @@
+Correção da avaliação:
+
+- Abstração ou Classe abstrata --> criação de métodos vazios
+- Característica essencial para POO --> Herança
+- Encapsulamento --> Private/Public/Protected (geralmente atributos privados e métodos públicos)
+- Linguagem para scripts em linux --> Linux
+- Segurança em redes Internet --> SSH (Secure Shell)
+- Display flex --> Transforma elementos de uma coluna, em uma linha
+- git Branch --> Cria uma nova Branch

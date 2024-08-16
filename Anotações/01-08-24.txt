@@ -1,0 +1,8 @@
+.env no laravel, é similar ao application propperties do spring. Guarda informações de configurações
+de API ou banco de dados, como senha e conexões.
+
+para startar o servidor no php: php -s n°porta
+
+em laravel: php artisan serve
+
+php artisan list: lista todos os comandos com o artisan

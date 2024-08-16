@@ -1,0 +1,22 @@
+Qualidade de software:
+- Norma regulamentadora de qualidade de softwares: ISO/IEC 25010;
+	-Funcionalidade;
+	- Confiabilidade;
+	- Usabilidade;
+	- Eficiência;
+	- Manutenbilidade;
+	- Flexibilidade;
+	
+
+Sig Sigma (revisar)
+
+Ferramentas de teste:
+
+- JUnit (Revisar)
+- Selenium
+
+Metodologia de projeto ágil:
+ - Consiste em deixar o cliente no centro do projeto, visto que não é realizado um cronograma de tarefas
+e sim de entregas de protótipos, com a tendencia de evoluir e alinhar as ideias o mais rápido possível.
+
+
