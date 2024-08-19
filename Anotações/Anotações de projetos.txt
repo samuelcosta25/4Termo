@@ -1,0 +1,8 @@
+Número 29 da chamada
+
+16/08 - Projeto Laravel: N° 4 Gerenciamento de projetos.
+
+Tópicos e observações:
+- Gerente cria os projetos;
+- Funcionários/membros podem se inscrever no mesmo;
+- Gerente será capaz de listar os membros cadastrados em cada projeto;
