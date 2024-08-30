@@ -11,29 +11,43 @@ function buscarLivros() {
             tabelaCorpo.innerHTML = ''; // Limpa a tabela antes de renderizar
 
 
+
+
             // Itera sobre os livros e cria uma linha para cada um
             livros.forEach(livro => {
                 const linha = document.createElement('tr');
+
 
                 // Cria as células da linha
                 const idCelula = document.createElement('td');
                 idCelula.textContent = livro._id; // Ou livro.id_livro dependendo da estrutura
 
 
+
+
                 const tituloCelula = document.createElement('td');
                 tituloCelula.textContent = livro.titulo;
+
+
 
 
                 const autorCelula = document.createElement('td');
                 autorCelula.textContent = livro.autor;
 
 
+
+
                 const anoCelula = document.createElement('td');
                 anoCelula.textContent = livro.ano;
 
 
+
+
                 const generoCelula = document.createElement('td');
                 generoCelula.textContent = livro.genero;
+
+
+
 
                 //Adicionar botões de ação na célula
                 const acoesCelula = document.createElement('td');
@@ -49,8 +63,12 @@ function buscarLivros() {
                 deleteButton.onclick = () => deletarLivro(livro._id);
 
 
+
+
                 acoesCelula.appendChild(updateButton);
                 acoesCelula.appendChild(deleteButton);
+
+
 
 
                 // Adiciona as células na linha
@@ -62,12 +80,17 @@ function buscarLivros() {
                 linha.appendChild(acoesCelula);
 
 
+
+
                 // Adiciona a linha na tabela
                 tabelaCorpo.appendChild(linha);
             });
         })
         .catch(error => console.error('Erro ao buscar livros:', error)); // Loga um erro em caso de falha
 }
+
+
+
 
 // Função para adicionar um novo livro
 function adicionarLivro(livro) {
@@ -81,6 +104,55 @@ function adicionarLivro(livro) {
 }
 
 
+
+
+// Função  atualizar um livro
+function atualizarLivro(id, livro) {
+    fetch(`${apiUrl}/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(livro)
+    })
+        .then(() => window.location.href = 'index.html')
+        .catch(error => console.error('Erro ao atualizar livro:', error));
+}
+
+
+// função que preenche o formulário de atualização com os dados do livro existente
+function preencherLivros() {
+    const id = new URLSearchParams(window.location.search).get('id');
+    fetch(`${apiUrl}/${id}`)
+        .then(response => response.json())
+        .then(livro => {
+            document.getElementById('livroId').value = livro._id;
+            document.getElementById('titulo').value = livro.titulo;
+            document.getElementById('autor').value = livro.autor;
+            document.getElementById('ano').value = livro.ano;
+            document.getElementById('genero').value = livro.genero;
+        })
+        .catch(error => console.error('Erro ao buscar livro:', error));
+}
+
+
+//Renderização ao Carregar as Páginas
+
+
+window.onload = function () {
+    if (window.location.pathname.includes("index.html")) {
+        buscarLivros();
+    }
+    if (window.location.pathname.includes('update.html')) {
+        preencherLivros();
+    }
+};
+
+
+
+
+//Disparador do Evento do Formulário
+
+
+//Listener do Cadastrp
 document.getElementById('livroCad').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -97,20 +169,27 @@ document.getElementById('livroCad').addEventListener('submit', function (event) 
     adicionarLivro(livro);
 });
 
-// Preenche o formulário de atualização com os dados do livro existente
-if (window.location.pathname.includes('update.html')) {
-    const id = new URLSearchParams(window.location.search).get('id');
-    fetch(`${apiUrl}/${id}`)
-        .then(response => response.json())
-        .then(livro => {
-            document.getElementById('livroId').value = livro._id;
-            document.getElementById('titulo').value = livro.titulo;
-            document.getElementById('autor').value = livro.autor;
-            document.getElementById('ano').value = livro.ano;
-            document.getElementById('genero').value = livro.genero;
-        })
-        .catch(error => console.error('Erro ao buscar livro:', error));
-}
 
-// Chama a função para buscar e renderizar os livros ao carregar a página
-window.onload = buscarLivros;
+
+
+//listener do Update
+document.getElementById('livroUP').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+
+    const id = new URLSearchParams(window.location.search).get('id');
+    const titulo = document.getElementById('titulo').value;
+    const autor = document.getElementById('autor').value;
+    const ano = document.getElementById('ano').value;
+    const genero = document.getElementById('genero').value;
+
+
+    const livro = { titulo, autor, ano, genero };
+
+
+    // Atualizar livro existente
+
+
+    atualizarLivro(id, livro);
+
+});
