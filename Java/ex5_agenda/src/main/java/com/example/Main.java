@@ -1,4 +1,4 @@
-package ex5.src.main.java.com.example;
+package com.example;
 
 import java.util.Scanner;
 import javax.swing.JOptionPane;
